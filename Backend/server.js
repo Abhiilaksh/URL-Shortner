@@ -2,8 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const urlDB =require('./db')
 const {nanoid} =require('nanoid')
-const mongoose=require('mongoose')
-
 const app = express();
 
 app.use(cors());
@@ -15,7 +13,7 @@ app.post('/shorten',async(req,res)=>{
     const newUrl = await urlDB.create({ originalUrl: url, shortUrl:shortCode });
    
     res.json({msg:"Url Shortened",
-        shortUrl:`http://localhost:3000/${shortCode}`
+        shortUrl:`https://url-shortner-seven-drab.vercel.app/${shortCode}`
     })
 
 })

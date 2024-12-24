@@ -35,7 +35,7 @@ const URLShortener = () => {
 
     setIsLoading(true);
     try {
-      const response = await fetch('http://localhost:3000/shorten', {
+      const response = await fetch('https://url-shortner-bacw.onrender.com/shorten', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
