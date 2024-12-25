@@ -8,13 +8,18 @@ app.use(cors());
 app.use(express.json());
 
 app.post('/shorten',async(req,res)=>{
-    const {url}=req.body;
+    try{
+        const {url}=req.body;
     const shortCode = nanoid(5);
     const newUrl = await urlDB.create({ originalUrl: url, shortUrl:shortCode });
    
     res.json({msg:"Url Shortened",
-        shortUrl:`https://api.babyurl.xyz/${shortCode}`
+        shortUrl:`https://babyurl.xyz/${shortCode}`
     })
+    }
+    catch{
+        res.json({msg:"Url Not Given"})
+    }
 
 })
 
