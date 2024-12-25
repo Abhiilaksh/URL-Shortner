@@ -13,7 +13,7 @@ app.post('/shorten',async(req,res)=>{
     const newUrl = await urlDB.create({ originalUrl: url, shortUrl:shortCode });
    
     res.json({msg:"Url Shortened",
-        shortUrl:`https://babyurl.xyz/${shortCode}`
+        shortUrl:`https://api.babyurl.xyz/${shortCode}`
     })
 
 })
