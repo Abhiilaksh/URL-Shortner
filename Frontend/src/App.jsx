@@ -35,7 +35,7 @@ const URLShortener = () => {
 
     setIsLoading(true);
     try {
-      const response = await fetch('https://url-shortner-bacw.onrender.com/shorten', {
+      const response = await fetch('https://babyurl.xyz/shorten', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
