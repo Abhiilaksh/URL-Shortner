@@ -9,7 +9,7 @@ app.use(express.json());
 
 app.post('/shorten',async(req,res)=>{
     const {url}=req.body;
-    const shortCode = nanoid(7);
+    const shortCode = nanoid(5);
     const newUrl = await urlDB.create({ originalUrl: url, shortUrl:shortCode });
    
     res.json({msg:"Url Shortened",
