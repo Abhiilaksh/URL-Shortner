@@ -109,7 +109,7 @@ const URLShortener = () => {
             <div className="p-4 bg-green-100 border-l-4 border-green-500 text-green-700 rounded-lg text-lg break-all">
               <a href={shortUrl} target="_blank">{shortUrl}</a>
             </div>
-            <p>Link only valid for 10min</p>
+            
   
             <button
               onClick={copyToClipboard}

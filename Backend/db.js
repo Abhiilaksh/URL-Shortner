@@ -26,8 +26,7 @@ const urlSchema = new mongoose.Schema({
   },
 });
 
-// Create a TTL index on the createdAt field, documents will expire after 30 minutes (1800 seconds)
-urlSchema.index({ createdAt: 1 }, { expireAfterSeconds: 600 });
+urlSchema.index({ createdAt: 1 }, { expireAfterSeconds: 36000 });
 
 const urlDB = mongoose.model('urlDB', urlSchema);
 
