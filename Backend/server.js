@@ -3,6 +3,7 @@ const cors = require('cors');
 const urlDB =require('./db')
 const {nanoid} =require('nanoid')
 const app = express();
+const QRCode = require("qrcode");
 
 app.use(cors());
 app.use(express.json());
@@ -33,6 +34,26 @@ const {shortCode}=req.params;
     res.redirect(urlPresent.originalUrl)
 })
 
+
+app.post("/genrate-qr",async(req,res)=>{
+    const{shortUrl}=req.body;
+
+    if(!shortUrl){
+        return res.status(400).json({
+            error:"Shor url is required"
+        })
+    }
+
+    try{
+        const qrCodeDataurl=await QRCode.toDataURL(shortUrl);
+        res.json({
+            qrCode:qeCodeDataurl
+        });
+    }
+    catch(error){
+        res.status(500).json({error:"Error generating QR Code"})
+    }
+})
 app.listen(3000,()=>{
     console.log("Running on http://localhost:3000")
 })
