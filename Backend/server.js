@@ -35,12 +35,12 @@ const {shortCode}=req.params;
 })
 
 
-app.post("/genrate-qr",async(req,res)=>{
+app.post("/generate-qr",async(req,res)=>{
     const{shortUrl}=req.body;
 
     if(!shortUrl){
         return res.status(400).json({
-            error:"Shor url is required"
+            error:"Short url is required"
         })
     }
 
