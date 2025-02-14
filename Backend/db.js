@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
-
 require('dotenv').config();
-const mongoUrl=process.env.MONGO_URI;
+
+const mongoUrl = process.env.MONGO_URI;
+
 mongoose.connect(mongoUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -25,8 +26,6 @@ const urlSchema = new mongoose.Schema({
     default: Date.now,
   },
 });
-
-urlSchema.index({ createdAt: 1 }, { expireAfterSeconds: 36000 });
 
 const urlDB = mongoose.model('urlDB', urlSchema);
 
